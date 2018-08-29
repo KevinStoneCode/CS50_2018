@@ -1,0 +1,38 @@
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            {% for i in range(s2|length) %}
+              <th>{{ s2[i] }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            {% for i in range(s2|length + 1) %}
+              <th>{{ i }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in matrix %}
+            <tr>
+                <th>
+                    {% if loop.index > 1 %}
+                        {{ s1[loop.index - 2]}}
+                    {% endif -%}
+                </th>
+                <th>
+                    {{ loop.index - 1 }}
+                </th>
+            {% for col in row %}
+                <td>{{ col[0] }}</td>
+            {% endfor %}
+            </tr>
+
+        {% endfor %}
+
+    </tbody>
+</table>
